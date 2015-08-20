@@ -1,3 +1,5 @@
-FROM busybox:latest
-ADD ./hello.cpp /hello.cpp
-CMD echo "Hello World"
+FROM gcc:4.9
+COPY . /usr/src/myapp
+WORKDIR /usr/src/myapp
+RUN gcc -o myapp hello.cpp
+CMD ["./myapp"]
